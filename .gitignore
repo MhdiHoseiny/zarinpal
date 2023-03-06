@@ -1,0 +1,9 @@
+# Compiled output
+dist
+
+# IDE - VSCode
+.vscode
+
+# Dependency and optinal npm cache
+node_modules
+.npm
