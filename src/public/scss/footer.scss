@@ -1,0 +1,127 @@
+@use '../scss/vars' as vars;
+@use '../scss/mixin' as mixin;
+
+.public--footer {
+  margin-top: 32px;
+  padding: 32px 16px;
+  font-size: 14px;
+  border-top: 1px solid rgba($color: #000, $alpha: 0.1);
+  @include mixin.flex($dir: column, $gap: 32px);
+
+  .label {
+    font-weight: bold;
+  }
+
+  &--address span {
+    line-height: 1.75;
+
+    bdi {
+      color: vars.$color-primary;
+    }
+  }
+
+  &--links {
+    .group nav {
+      padding: 12px 0;
+      @include mixin.flex($dir: column, $gap: 6px);
+    }
+    & a {
+      color: vars.$color-gray;
+    }
+  }
+
+  &--about {
+    @include mixin.flex(
+      $dir: column,
+      $justify-content: center,
+      $align-items: center
+    );
+
+    .social-links {
+      @include mixin.flex(
+        $dir: column,
+        $justify-content: center,
+        $align-items: center,
+        $gap: 18px
+      );
+    }
+    .social-links div {
+      @include mixin.flex(
+        $justify-content: center,
+        $align-items: center,
+        $gap: 18px
+      );
+    }
+
+    .social-links span {
+      margin: auto;
+    }
+
+    .social-links a {
+      width: 24px;
+      height: 24px;
+      border-radius: 3px;
+      display: inline-block;
+      background-color: lighten(vars.$color-primary, $amount: 60);
+    }
+    .aparat {
+      @include mixin.bg-img('../img/aparat.svg');
+    }
+
+    .linkedin {
+      @include mixin.bg-img('../img/linkedin.svg');
+    }
+
+    .telegram {
+      @include mixin.bg-img('../img/telegram.svg');
+    }
+
+    .twitter {
+      @include mixin.bg-img('../img/twitter.svg');
+    }
+
+    .instagram {
+      @include mixin.bg-img('../img/instagram.svg');
+    }
+
+    .etemad {
+      & > a {
+        width: 100px;
+        height: 100px;
+        margin: 8px auto;
+        display: block;
+        @include mixin.bg-img('../img/logo.png');
+      }
+    }
+  }
+
+  @include mixin.media(custom, $min: 0px, $max: vars.$screen-md-min) {
+    &--links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-items: start;
+      align-items: start;
+      gap: 18px;
+    }
+  }
+  @include mixin.media(md) {
+    &--address {
+      @include mixin.flex($justify-content: space-around, $align-items: center);
+
+      address {
+        width: 100%;
+        @include mixin.flex(
+          $justify-content: space-around,
+          $align-items: center
+        );
+      }
+    }
+    &--links {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      justify-items: start;
+      align-items: start;
+      gap: 18px;
+    }
+  }
+}
