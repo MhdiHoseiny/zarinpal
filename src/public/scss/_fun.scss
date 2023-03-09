@@ -1,0 +1,7 @@
+@use './vars' as vars;
+
+// Functions
+
+@function em($pixels, $context: vars.$browser-context) {
+  @return #{calc($pixels / $context)}em;
+}

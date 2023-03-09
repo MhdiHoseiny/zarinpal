@@ -1,0 +1,32 @@
+@import './vars';
+@import './mixin';
+
+// Import internal font if defined
+@if variable-exists(font-url--internal-eot) {
+  @each $i, $weight in $font-weights {
+    @if $weight == 'normal' {
+      @include font-face(
+        $font-family,
+        $weight,
+        $font-url--internal-eot + '.eot',
+        $font-url--internal-ttf + '.ttf',
+        $font-url--internal-woff + '.woff',
+        $font-url--internal-woff2 + '.woff2'
+      );
+    }
+    @if $weight == 'bold' {
+      @include font-face(
+        $font-family,
+        $weight,
+        $font-url--internal-eot + '-bold.eot',
+        $font-url--internal-ttf + '-bold.ttf',
+        $font-url--internal-woff + '-bold.woff',
+        $font-url--internal-woff2 + '-bold.woff2'
+      );
+    }
+  }
+}
+
+* {
+  font-family: $font-family, sans-serif;
+}
