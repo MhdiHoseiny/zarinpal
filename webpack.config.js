@@ -45,7 +45,7 @@ const config = {
       },
       {
         test: /\.(eot|ttf|woff|woff2)$/i,
-        type: 'asset/',
+        type: 'asset',
         generator: {
           filename: './font/[name][ext]',
         },
