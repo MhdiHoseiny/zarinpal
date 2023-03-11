@@ -57,12 +57,17 @@
       margin: auto;
     }
 
+    .social-links div div {
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      background-color: lighten(vars.$color-primary, $amount: 60);
+    }
+
     .social-links a {
       width: 24px;
       height: 24px;
-      border-radius: 3px;
       display: inline-block;
-      background-color: lighten(vars.$color-primary, $amount: 60);
     }
     .aparat {
       @include mixin.bg-img('../img/aparat.svg');

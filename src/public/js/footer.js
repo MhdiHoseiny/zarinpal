@@ -71,11 +71,21 @@ function create() {
         <div class="social-links">
           <span class="label">زرین پال در شبکه های اجتماعی:</span>
           <div>
-            <a href="#" class="aparat"></a>
-            <a href="#" class="linkedin"></a>
-            <a href="#" class="telegram"></a>
-            <a href="#" class="twitter"></a>
-            <a href="#" class="instagram"></a>
+            <div>
+              <a href="#" class="aparat"></a>
+            </div>
+            <div>
+              <a href="#" class="linkedin"></a>
+            </div>
+            <div>
+              <a href="#" class="telegram"></a>
+            </div>
+            <div>
+              <a href="#" class="twitter"></a>
+            </div>
+            <div>
+              <a href="#" class="instagram"></a>
+            </div>
           </div>
         </div>
         <div class="etemad">
