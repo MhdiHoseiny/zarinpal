@@ -1,3 +1,5 @@
+@use './vars' as vars;
+
 // Basic style for tags
 
 * {
@@ -10,4 +12,42 @@
 
 .d-flex {
   display: flex !important;
+}
+
+%btn {
+  padding: 8px 18px;
+  margin: 4px;
+  border-radius: 12px;
+  box-shadow: 0 3px 9px 0 rgb(0 0 0 / 3%);
+  transition: background 500ms ease-in-out;
+}
+
+.btn--primary {
+  color: vars.$color-dark;
+  background-color: vars.$color-brand;
+  @extend %btn;
+
+  &:hover {
+    background-color: darken($color: vars.$color-brand, $amount: 10);
+  }
+}
+
+.btn--secondary {
+  color: vars.$color-light;
+  background-color: #435a8a;
+  @extend %btn;
+
+  &:hover {
+    background-color: darken($color: #435a8a, $amount: 10);
+  }
+}
+
+.btn--ghost {
+  color: vars.$color-dark;
+  background-color: #ecf3ff;
+  @extend %btn;
+
+  &:hover {
+    background-color: darken($color: #eff4ff, $amount: 10);
+  }
 }
