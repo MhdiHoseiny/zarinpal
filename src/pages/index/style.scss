@@ -1,0 +1,232 @@
+@use '../../public/scss/vars' as vars;
+@use '../../public/scss/mixin' as mixin;
+
+main {
+  margin: 100px 32px 32px 32px;
+}
+
+.hero-header {
+  padding: 32px;
+  border-radius: 32px;
+  color: vars.$color-light;
+  background: linear-gradient(to top, #593b79, #3d0a56);
+  box-shadow: 0 3px 10px rgba($color: #000, $alpha: 0.44);
+  @include mixin.flex($justify-content: space-around, $align-items: center);
+
+  &--title {
+    margin: 0;
+  }
+
+  &--text {
+    text-align: justify;
+  }
+
+  &--links {
+    margin: 32px 0;
+  }
+
+  @include mixin.media(custom, $min: 0px, $max: vars.$screen-md-min) {
+    .content {
+      @include mixin.flex(
+        $dir: column,
+        $justify-content: center,
+        $align-items: center,
+        $gap: 0
+      );
+    }
+    .poster {
+      display: none;
+    }
+  }
+  @include mixin.media(md) {
+    .content {
+      flex: 1;
+    }
+    .poster {
+      flex: 1;
+      height: 70vh;
+      @include mixin.bg-img('./img/home.svg');
+    }
+  }
+}
+
+.contents {
+  margin: 96px 0 32px 0;
+
+  &--card {
+    margin-bottom: 32px;
+
+    .content {
+      border-bottom: 1px solid rgba($color: #000, $alpha: 0.1);
+    }
+
+    .texts {
+      h2 {
+        margin: 0;
+        font-weight: normal;
+        color: lighten($color: vars.$color-gray, $amount: 35);
+      }
+      span {
+        font-weight: bold;
+        font-size: 1.5em;
+      }
+      p {
+        color: lighten($color: vars.$color-gray, $amount: 10);
+      }
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 32px 0;
+    }
+
+    &.online-payment .poster {
+      @include mixin.bg-img('./img/pg.svg');
+    }
+
+    &.zarin-link .poster {
+      @include mixin.bg-img('./img/social-image.svg');
+    }
+
+    &.zarin-card .poster {
+      @include mixin.bg-img('./img/zarincard.svg');
+    }
+
+    &.shared-payment .poster {
+      @include mixin.bg-img('./img/payout.svg');
+    }
+
+    &.profit-tool .poster {
+      @include mixin.bg-img('./img/chart.svg');
+      @include mixin.media(custom, $min: 0px, $max: vars.$screen-md-min) {
+        height: 40vw;
+      }
+
+      @include mixin.media(md) {
+        height: 20vw;
+      }
+    }
+
+    @include mixin.media(custom, $min: 0px, $max: vars.$screen-sm-min) {
+      .poster {
+        display: none;
+        background: none;
+      }
+
+      .texts h2 {
+        text-align: center;
+      }
+    }
+
+    @include mixin.media(custom, $min: 0px, $max: vars.$screen-md-min) {
+      @include mixin.flex($dir: column-reverse);
+
+      .content {
+        width: 100%;
+      }
+
+      .poster {
+        width: 100%;
+        height: 50vw;
+      }
+    }
+
+    @include mixin.media(md) {
+      @include mixin.flex($align-items: center, $justify-content: space-around);
+
+      &:nth-child(even) {
+        flex-direction: row;
+      }
+      &:nth-child(odd) {
+        flex-direction: row-reverse;
+      }
+
+      .content {
+        flex: 1;
+      }
+      .poster {
+        flex: 1;
+        height: 30vw;
+      }
+    }
+  }
+}
+
+.about-zarinpal {
+  display: grid;
+  gap: 16px;
+
+  &--body {
+    h3 {
+      margin: 0;
+    }
+    p {
+      margin: 0;
+    }
+  }
+
+  &--body h3::before {
+    width: 56px;
+    padding-left: 16px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &--body:nth-child(2) h3::before {
+    content: url('./img/verifiedIcon.svg');
+  }
+
+  &--body:nth-child(3) h3::before {
+    content: url('./img/splite.svg');
+  }
+
+  &--body:nth-child(4) h3::before,
+  &--body:nth-child(5) h3::before {
+    content: url('./img/support.svg');
+  }
+
+  @include mixin.media(custom, $min: 0px, $max: vars.$screen-sm-min) {
+    grid-template-columns: 1fr;
+  }
+  @include mixin.media(
+    custom,
+    $min: vars.$screen-sm-min,
+    $max: vars.$screen-lg-min
+  ) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+
+    &--head {
+      grid-column: span 2;
+    }
+  }
+  @include mixin.media(lg) {
+    padding: 56px 0;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    &--head {
+      grid-row: span 2;
+    }
+  }
+}
+
+.btn--float {
+  position: fixed;
+  width: 48px;
+  height: 48px;
+  left: 16px;
+  bottom: 16px;
+  z-index: 1;
+  background: transparent;
+  @include mixin.flex($justify-content: center, $align-items: center);
+
+  button {
+    width: 100%;
+    height: 100%;
+    border-radius: 36px;
+    background-color: #2e82ff;
+    @include mixin.flex($justify-content: center, $align-items: center);
+  }
+}

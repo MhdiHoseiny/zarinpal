@@ -8,7 +8,7 @@ const stylesHandler = isProduction
   ? MiniCssExtractPlugin.loader
   : 'style-loader';
 
-const htmlPages = [];
+const htmlPages = [{ name: 'index', path: './src/index.html' }];
 const multipleHtmlPlugin = htmlPages.map(page => {
   return new HtmlWebpackPlugin({
     template: `${page.path}`,
@@ -19,7 +19,9 @@ const multipleHtmlPlugin = htmlPages.map(page => {
 });
 
 const config = {
-  entry: {},
+  entry: {
+    index: './src/pages/index/index.js',
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
